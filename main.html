@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte Size Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+    </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <h1>Byte Size Calculator</h1>
+    <input type="text" id="inputString" placeholder="Enter a string" />
+    <button onclick="calculateByteSize()">Calculate Byte Size</button>
+    <p id="result"></p>
 
+    <script>
+        function byteSize(str) {
+            const blob = new Blob([str]);
+            return blob.size;
+        }
+
+        function calculateByteSize() {
+            const inputString = document.getElementById('inputString').value;
+            const size = byteSize(inputString);
+            document.getElementById('result').innerText = `Byte size: ${size}`;
+        }
+    </script>
 </body>
-
 </html>
